@@ -16,6 +16,7 @@ const about = ({articles}) => {
 };
 export default about;
 
+//N request -> 1 ejecucion
 export async function getStaticProps() {
     const res = await fetch(`https://newsapi.org/v2/everything?q=apple&from=2022-12-06&to=2022-12-06&sortBy=popularity&apiKey=a907e6a4cb7d479fb55abdae7f4a35a2`);
     const articles = await res.json();
@@ -25,3 +26,15 @@ export async function getStaticProps() {
         },
     };
 }
+
+//N request -> N ejecucion
+
+// export async function getServerSideProps() {
+//     const res = await fetch(`https://newsapi.org/v2/everything?q=apple&from=2022-12-06&to=2022-12-06&sortBy=popularity&apiKey=a907e6a4cb7d479fb55abdae7f4a35a2`);
+//     const articles = await res.json();
+//     return {    
+//         props: {
+//             articles: articles.articles,
+//         },
+//     };
+// }

@@ -30,7 +30,7 @@ export default function Home() {
         {articles.length === 0 && <p>Cargando...</p>}
         {articles.length > 0 && articles.map((article, index) => (
           <div key={index}>
-            <img src={article.urlToImage} alt={article.title} />
+            <img src={article.urlToImage} alt={article.title} width={450} height={300} />
             <h3>{article.title}</h3>
             <p>{article.description}</p>
           </div>
